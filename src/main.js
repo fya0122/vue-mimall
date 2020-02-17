@@ -5,10 +5,14 @@ import 'element-ui/lib/theme-chalk/index.css'
 import router from '@/router/index.js'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import '@/assets/css/reset.css'
 // import env from './env'
 
-axios.defaults.baseURL = '/api';
+const mock = false;
+if(mock){
+  require('./mock/api');
+}
+
+// axios.defaults.baseURL = '/api';
 axios.defaults.timeout = 8000;
 // 根据环境变量获取不同的请求地址
 // axios.defaults.baseURL = env.baseURL; // 但是缺点是这套只能用到cros和jsonp跨域的时候使用，如果是代理的话，是不行的
@@ -33,7 +37,7 @@ axios.interceptors.response.use((response) => {
 
 Vue.use(VueAxios, axios)
 Vue.prototype.$message = Message;
-Vue.config.productionTip = false
+Vue.config.productionTip = true
 
 new Vue({
   router,

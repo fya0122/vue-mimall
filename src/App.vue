@@ -4,11 +4,10 @@
   </div>
 </template>
 <script>
-import storege from '@/storage/index.js'
 export default {
-  name: 'App',
-  mounted() {
-    console.log(storege.getItem('b', 'user'))
-  }
+  name: 'App'
 }
 </script>
+<style lang="scss">
+@import '@/assets/scss/reset.scss';
+</style>
